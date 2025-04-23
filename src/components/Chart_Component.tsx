@@ -1,17 +1,62 @@
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const Chart_Component = ({ data }: { data: any[] }) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={data}>
+        <CartesianGrid  />
         <XAxis dataKey="date" />
-        <YAxis />
-        <Tooltip />
+
+        <YAxis
+          yAxisId="left"
+          label={{ value: "USD / EUR", angle: -90, position: "insideLeft" }}
+        />
+        <YAxis
+          yAxisId="right"
+          orientation="right"
+          label={{ value: "JPY", angle: 90, position: "insideRight" }}
+        />
+
+        <Tooltip
+          formatter={(value, name) =>
+            typeof value === "number" ? [`${value.toFixed(5)}`, name] : [value, name]
+          }
+        />
         <Legend />
-        <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
-        <Line type="monotone" dataKey="USD" stroke="#8884d8" />
-        <Line type="monotone" dataKey="EUR" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="JPY" stroke="#ffc658" />
+
+        {/* USD and EUR - use left Y-axis */}
+        <Line
+          yAxisId="left"
+          type="monotone"
+          dataKey="USD"
+          stroke="#8884d8"
+          name="USD"
+        />
+        <Line
+          yAxisId="left"
+          type="monotone"
+          dataKey="EUR"
+          stroke="#82ca9d"
+          name="EUR"
+        />
+
+        {/* JPY - use right Y-axis */}
+        <Line
+          yAxisId="right"
+          type="monotone"
+          dataKey="JPY"
+          stroke="#f39c12"
+          name="JPY"
+        />
       </LineChart>
     </ResponsiveContainer>
   );

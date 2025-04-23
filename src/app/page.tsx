@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="p-6">
+    <div className="p-6 bg-zinc-800 text-amber-50">
       <h2 className="text-xl font-bold mb-4">Currency Forecast</h2>
       <Chart_Component data={data} />
       <pre className="text-xs text-gray-500">{JSON.stringify(data, null, 2)}</pre>
