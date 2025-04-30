@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { fetchCurrencyData } from "@/lib/fetchCurrencyData";
 import Chart_Component from "@/components/Chart_Component";
+import { CurrencyData } from "@/types/CurrencyData";
 
 export default function Home() {
-  const [data, setData] = useState<any[]>([]);
+  const [data, setData] = useState<CurrencyData[]>([]);
   
   useEffect(() => {
     const getData = async () => {

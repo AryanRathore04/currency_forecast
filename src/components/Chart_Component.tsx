@@ -1,3 +1,4 @@
+import { CurrencyData } from "@/types/CurrencyData";
 import {
   LineChart,
   Line,
@@ -9,7 +10,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Chart_Component = ({ data }: { data: any[] }) => {
+const Chart_Component = ({ data }: { data: CurrencyData[] }) => {
   return (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={data}>

@@ -1,4 +1,7 @@
-export async function fetchCurrencyData(p0: string, p1: string[], p2: string, p3: string) {
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+
+export async function fetchCurrencyData(_p0: string, _p1: string[], _p2: string, _p3: string) {
   const base = "INR";
   const symbols = ["USD", "EUR", "JPY"];
   const start = "2024-12-01";
@@ -25,3 +28,5 @@ export async function fetchCurrencyData(p0: string, p1: string[], p2: string, p3
     ...(typeof currencies === "object" && currencies !== null ? currencies : {})
   }));
 }
+
+
